@@ -1,0 +1,136 @@
+// components/SchemaOrg.tsx
+// import { Head } from 'next/document';
+
+import Head from "next/head";
+
+const other = {
+  "application/ld+json": {
+    "application/ld+json": {
+      "@context": "https://schema.org",
+      "@type": "BarOrPub",
+      "name": "Thirsty Souls",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1-3 Regency West Mall",
+        "addressLocality": "Stockton-on-Tees",
+        "addressRegion": "ENG",
+        "postalCode": "TS18 1EF",
+        "addressCountry": "GB"
+      },
+      "url": "https://www.thirstysouls.co.uk",
+      "telephone": "+44 1642 901012",
+      // "image": "https://www.thirstysouls.co.uk/og-image.jpg",
+      "description": "Thirsty Souls is a vibrant bar located in the heart of Stockton-on-Tees, offering craft beers, cocktails, and live music every weekend.",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "54.5635814",
+        "longitude": "-1.3149429"
+      },
+      "openingHours": "Fr, Sa 18:00-01:00",
+      "sameAs": [
+        "https://www.facebook.com/thirstysouls",
+        "https://www.instagram.com/thirstysouls"
+      ]
+    }
+  }
+}
+const jsonLd = {
+  '@context': 'https://schema.org',
+    '@type': 'BarOrPub',
+    name: 'Thirsty Souls',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '1-3 Regency West Mall',
+      addressLocality: 'Stockton-on-Tees',
+      postalCode: 'TS18 1EF',
+      addressCountry: 'GB',
+    },
+    geo: {
+        "@type": "GeoCoordinates",
+        latitude: 54.5635814,
+        longitude: -1.3149429
+      },
+    telephone: '+44 1642 901012',
+    url: 'https://www.thirstysouls.co.uk',
+    // image: 'https://www.thirstysouls.com/image.jpg',
+    description: 'Thirsty Souls is a vibrant bar located in the heart of Stockton-on-Tees, offering a wide selection of craft beers, cocktails, and live DJ performances every Friday and Saturday night.',
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: [
+          "Friday",
+          "Saturday"
+        ],
+        opens: "18:00",
+        closes: "01:00"
+      },
+    ],
+
+
+    // menu: 'https://www.thirstysouls.com/menu',
+    acceptsReservations: 'True',
+    priceRange: '££',
+    sameAs: [
+      'https://www.facebook.com/ThirstySoulsTS',
+      'https://www.instagram.com/thirstysoulsts',
+    ],
+
+
+
+};
+
+const SchemaOrg = () => {
+  const schemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'BarOrPub',
+    name: 'Thirsty Souls',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '1-3 Regency West Mall',
+      addressLocality: 'Stockton-on-Tees',
+      postalCode: 'TS18 1EF',
+      addressCountry: 'GB',
+    },
+    telephone: '+44 1642 901012',
+    url: 'https://www.thirstysouls.co.uk',
+    // image: 'https://www.thirstysouls.com/image.jpg',
+    description:
+      'Thirsty Souls is a vibrant bar located in the heart of Stockton-on-Tees, offering a wide selection of craft beers, cocktails, and live DJ performances every Friday and Saturday night.',
+    openingHours: 'Fri-Sat 18:00-01:00',
+    // menu: 'https://www.thirstysouls.com/menu',
+    acceptsReservations: 'True',
+    priceRange: '££',
+    sameAs: [
+      'https://www.facebook.com/ThirstySoulsTS',
+      'https://www.instagram.com/thirstysoulsts',
+    ],
+  };
+
+  const openGraphData: { [key: string]: string } = {
+    'og:type': 'bar',
+    'og:title': 'Thirsty Souls - Stockton-on-Tees Bar & Pub',
+    'og:description':
+      'Thirsty Souls is a vibrant bar located in the heart of Stockton-on-Tees, offering craft beers, cocktails, and live music every weekend.',
+    'og:url': 'https://www.thirstysouls.co.uk',
+    // 'og:image': 'https://www.thirstysouls.com/og-image.jpg',
+    'og:image:alt': 'Thirsty Souls Bar & Pub in Stockton-on-Tees',
+    'og:site_name': 'Thirsty Souls',
+    'og:locale': 'en_GB',
+  };
+
+  return (
+    <Head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schemaData),
+        }}
+      />
+      {Object.keys(openGraphData).map((key: string) => (
+        <meta key={key} property={key} content={openGraphData[key]} />
+      ))}
+    </Head>
+  );
+};
+
+export default SchemaOrg;
