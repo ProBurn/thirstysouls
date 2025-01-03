@@ -1,8 +1,10 @@
 import type { Metadata as NextMetadata } from "next";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 interface Metadata extends NextMetadata {
   other?: Record<string, any>;
 }
+/* eslint-enable @typescript-eslint/no-explicit-any */
 import localFont from "next/font/local";
 import "./globals.css";
 import { GoogleTagManager } from '@next/third-parties/google'
@@ -38,35 +40,36 @@ export const metadata: Metadata = {
   },
   other: {
     "application/ld+json": {
-      "@context": "https://schema.org",
-      "@type": "BarOrPub",
-      "name": "Thirsty Souls",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "1-3 Regency West Mall",
-        "addressLocality": "Stockton-on-Tees",
-        "addressRegion": "ENG",
-        "postalCode": "TS18 1EF",
-        "addressCountry": "GB"
-      },
-      "url": "https://www.thirstysouls.co.uk",
-      "telephone": "+44 1642 901012",
-      // "image": "https://www.thirstysouls.co.uk/og-image.jpg",
-      "description": "Thirsty Souls is a vibrant bar located in the heart of Stockton-on-Tees, offering craft beers, cocktails, and live music every weekend.",
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "54.5635814",
-        "longitude": "-1.3149429"
-      },
-      "openingHours": "Fr, Sa 18:00-01:00",
-      "sameAs": [
-        "https://www.facebook.com/thirstysouls",
-        "https://www.instagram.com/thirstysouls"
-      ]
+      "application/ld+json": {
+        "@context": "https://schema.org",
+        "@type": "BarOrPub",
+        "name": "Thirsty Souls",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1-3 Regency West Mall",
+          "addressLocality": "Stockton-on-Tees",
+          "addressRegion": "ENG",
+          "postalCode": "TS18 1EF",
+          "addressCountry": "GB"
+        },
+        "url": "https://www.thirstysouls.co.uk",
+        "telephone": "+44 1642 901012",
+        // "image": "https://www.thirstysouls.co.uk/og-image.jpg",
+        "description": "Thirsty Souls is a vibrant bar located in the heart of Stockton-on-Tees, offering craft beers, cocktails, and live music every weekend.",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "54.5635814",
+          "longitude": "-1.3149429"
+        },
+        "openingHours": "Fr, Sa 18:00-01:00",
+        "sameAs": [
+          "https://www.facebook.com/thirstysouls",
+          "https://www.instagram.com/thirstysouls"
+        ]
+      }
     }
   }
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
