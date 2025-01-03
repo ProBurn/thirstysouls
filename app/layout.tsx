@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-    '@type': 'BarOrPub',
+    '@type': 'Bar',
     name: 'Thirsty Souls',
     address: {
       '@type': 'PostalAddress',
@@ -70,7 +70,7 @@ const jsonLd = {
 
     // menu: 'https://www.thirstysouls.com/menu',
 
-    // priceRange: '££',
+    priceRange: '££',
     sameAs: [
       'https://www.facebook.com/ThirstySoulsTS',
       'https://www.instagram.com/thirstysoulsts',
